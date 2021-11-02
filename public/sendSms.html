@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Stellar Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../vendors/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="../../vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="../../vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="../../vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="shortcut icon" href="../../images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:../../partials/_navbar.html -->
+      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex align-items-center">
+          <a class="navbar-brand brand-logo" href="../../index.html">
+            <img src="../../images/logo.svg" alt="logo" class="logo-dark" />
+          </a>
+          <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/logo-mini.svg" alt="logo" /></a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
+          <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome to ProfessionalSMS SendSMS!</h5>
+          
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="profile-image">
+                  <img class="img-xs rounded-circle" src="../../images/faces-clipart/pic-4.png" alt="profile image">
+                </div>
+                <div class="text-wrapper">
+                  <p class="profile-name">Administrator</p>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item nav-category">
+              <span class="nav-link">Dashboard</span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/getRecentMessages">
+                <span class="menu-title">Recent Messages</span>
+                <i class="icon-screen-desktop menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sendSms">
+                <span class="menu-title">SendSMS</span>
+                <i class="icon-screen-desktop menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/uploadCsv">
+                <span class="menu-title">Bulk upload</span>
+                <i class="icon-screen-desktop menu-icon"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Send SMS</h4>
+                    <p class="card-description"> Fill all details and submit. </p>
+                    <p class=" text-danger"> For single message. </p>
+                    <form class="forms-sample" id="sendSms">
+                      <div class="form-group">
+                        <label for="from">From</label>
+                        <input type="tel" required class="form-control" disabled value="<%= phoneNumber %>" id="from" placeholder="From">
+                      </div>
+                      <div class="form-group">
+                        <label for="to">To</label>
+                        <input type="tel" required class="form-control" pattern="[1-9]{1}[0-9]{9}" id="to" placeholder="To">
+                        <p class="text-danger">* Please enter 10 digit number without country code.</p>
+                      </div>
+                      <div class="form-group">
+                        <label for="body">Body</label>
+                        <textarea class="form-control" id="body" required maxlength="1599" rows="4"></textarea>
+                      </div>
+                      <p class="text-danger">* Only 1599 characters allowed. Know that messages will be split into 153 characters per message.</p>
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
+            </div>
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    
+    <script src="../../vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="../../vendors/select2/select2.min.js"></script>
+    <script src="../../vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../../js/off-canvas.js"></script>
+    <script src="../../js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="../../js/typeahead.js"></script>
+    <script src="../../js/select2.js"></script>
+    <!-- End custom js for this page -->
+    <script src=../../js/intlTelInput.js></script>
+    <script>
+      $(document).ready(function () {
+        document.getElementById("sendSms").addEventListener("submit", (event) => {
+          event.preventDefault();
+          var obj = {
+            'from': event.target.from.value,
+            'to': '+1'+event.target.to.value,
+            'body': event.target.body.value,
+          }
+          console.log(JSON.stringify(obj));
+          if (event.target.from.value == "") {
+            alert('Please enter from number.');
+          } else if(event.target.to.value == ""){
+            alert('Please enter to number.');
+          } else if(event.target.body.value == ""){
+            alert('Please add some text to SMS body.');
+          }else {
+            window.location.href = encodeURI('/sendSms/' + JSON.stringify(obj), "UTF-8");
+          }
+        })
+      });
+    </script>
+  </body>
+</html>

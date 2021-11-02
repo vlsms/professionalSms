@@ -1,0 +1,28 @@
+{
+  "name": "sms-app",
+  "version": "1.0.0",
+  "description": "SignalWire SMS Frontend",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "node app.js"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@signalwire/node": "^2.4.0",
+    "dateformat": "^5.0.2",
+    "dayjs": "^1.10.7",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "fast-csv": "^4.3.6",
+    "fs": "0.0.1-security",
+    "intl-tel-input": "^17.0.13",
+    "multer": "^1.4.3",
+    "path": "^0.12.7",
+    "properties-reader": "^2.2.0"
+  }
+}

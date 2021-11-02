@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Stellar Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../vendors/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="../../vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="../../vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="../../vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="shortcut icon" href="../../images/favicon.png" />
+    <style type="text/css">
+        td {
+            /* css-3 */
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            min-width: 100;
+            max-width: 100px;
+            overflow: hidden;
+        }
+        td:hover{
+            overflow: visible;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:../../partials/_navbar.html -->
+      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex align-items-center">
+          <a class="navbar-brand brand-logo" href="../../index.html">
+            <img src="../../images/logo.svg" alt="logo" class="logo-dark" />
+          </a>
+          <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/logo-mini.svg" alt="logo" /></a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
+          <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome to ProfessionalSMS dashboard!</h5>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="profile-image">
+                  <img class="img-xs rounded-circle" src="../../images/faces-clipart/pic-4.png" alt="profile image">
+                </div>
+                <div class="text-wrapper">
+                  <p class="profile-name">Administrator</p>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item nav-category">
+              <span class="nav-link">Dashboard</span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/getRecentMessages">
+                <span class="menu-title">Recent Messages</span>
+                <i class="icon-screen-desktop menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sendSms">
+                <span class="menu-title">SendSMS</span>
+                <i class="icon-screen-desktop menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/uploadCsv">
+                <span class="menu-title">Bulk upload</span>
+                <i class="icon-screen-desktop menu-icon"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            
+            <div class="row">
+                <div class="col-md-12 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-sm-flex align-items-center mb-4">
+                        <h4 class="card-title mb-sm-0">Recent Messages</h4>
+                      </div>
+                      <div class="table-responsive border rounded p-1">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                                <!-- <th class="font-weight-bold" style="visibility:hidden;">SID</th> -->
+                                <th class="font-weight-bold">From</th>
+                                <th class="font-weight-bold">To</th>
+                                <th class="font-weight-bold">Body</th>
+                                <th class="font-weight-bold">Price</th>
+                                <th class="font-weight-bold">Date Sent</th>
+                                <th class="font-weight-bold">Status</th>
+                                <th class="font-weight-bold">Status Msg</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% for(var i = 0; i < listMsg.length; i++) { %>
+                            <tr>
+                                <!-- <td style="visibility:hidden;"><%= listMsg[i].sid %></td> -->
+                                <td><%= listMsg[i].from %></td>
+                                <td><%= listMsg[i].to %></td>
+                                <td><img src="images/file-icons/64/003-interface.png" alt="body" data-toggle="tooltip" data-placement="bottom" title="<%= listMsg[i].body %>" /></td>
+                                <td><%= listMsg[i].price %> $</td>
+                                <td><%= dayjs(listMsg[i].dateSent).format('YYYY-MM-DD HH:mm') %></td>
+                                <td><%= listMsg[i].status %></td>
+                                <% if(listMsg[i].errorMessage != null){ %>
+                                    <td><img src="images/file-icons/64/error.png" alt="body" data-toggle="tooltip" data-placement="bottom" title="<%= listMsg[i].errorMessage %>" /></td>
+                                <% } else { %>
+                                    <td><img src="images/file-icons/64/correct.png" alt="body" data-toggle="tooltip" data-placement="bottom" title="Successfull!!!" /></td>
+                                <% } %>
+
+                                <!-- <td><%= listMsg[i].errorMessage %></td> -->
+                            </tr>
+                            <% } %>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    
+    <script src="../../vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="../../vendors/select2/select2.min.js"></script>
+    <script src="../../vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../../js/off-canvas.js"></script>
+    <script src="../../js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="../../js/typeahead.js"></script>
+    <script src="../../js/select2.js"></script>
+    <!-- End custom js for this page -->
+    <script src=../../js/intlTelInput.js></script>
+  </body>
+</html>
