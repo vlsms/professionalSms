@@ -56,7 +56,7 @@ app.get("/sendSms", (req, res)=>{
 })
 
 app.get("/sendSms/:object", (req, res)=>{
-    const obj = JSON.parse(req.params.object);
+    const obj = JSON.parse( decodeURIComponent(req.params.object));
     // console.log("From " + obj.from);
     // console.log("To " + obj.to);
     // console.log("Body " + obj.body);
@@ -71,7 +71,7 @@ app.get("/sendSms/:object", (req, res)=>{
             res.render(__dirname + '/public/successful.html',{details:message});
         })
         .done();
-    
+    // console.log(obj);
     // res.render(__dirname + '/public/successful.html',{details:message});        
     
 })
